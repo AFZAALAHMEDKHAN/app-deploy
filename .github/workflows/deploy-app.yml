@@ -14,4 +14,3 @@ jobs:
 
       - name: Print success message
         run: echo "Deploy app workflow triggered!"
-
