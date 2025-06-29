@@ -1,0 +1,33 @@
+name: Artifact Workflow
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  create_artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create sample.txt file
+        run: echo "Sample artifact content" > sample.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sample-text
+          path: sample.txt
+
+  use_artifact:
+    needs: create_artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: sample-text
+
+      - name: Display file contents
+        run: cat sample.txt
