@@ -1,6 +1,8 @@
-name: Python CI
+name: Python Matrix Strategy
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
 
 jobs:
   build:
@@ -10,6 +12,7 @@ jobs:
         python-version: [3.9, 3.10, 3.11, 3.12]
 
     runs-on: ${{ matrix.os }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -21,9 +24,3 @@ jobs:
 
       - name: Display Python version
         run: python --version
-     
-      - name: Debug matrix variables
-        run: |
-          echo "Running on OS: ${{ matrix.os }}"
-          echo "Using Python version: ${{ matrix.python-version }}"
-  
