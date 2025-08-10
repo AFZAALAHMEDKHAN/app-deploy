@@ -1,15 +1,1 @@
-name: Access ID Printer
 
-on:
-  push:
-
-jobs:
-  print-access-id:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Print ACCESS_ID from GitHub Variables
-        run: echo "The ACCESS_ID is ${{ vars.ACCESS_ID }}"
