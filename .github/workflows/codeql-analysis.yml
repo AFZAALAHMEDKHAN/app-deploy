@@ -1,0 +1,30 @@
+name: "CodeQL Security Scan"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # Initializes the CodeQL tools for scanning.
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: 'javascript' # Change or add languages if your source code differs (e.g., 'javascript, python')
+
+    # Performs the actual CodeQL analysis and uploads results
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
