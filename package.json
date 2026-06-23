@@ -1,0 +1,10 @@
+{
+  "name": "codeql-scan-repo",
+  "version": "1.0.0",
+  "description": "Sample JavaScript source for the CodeQL SAST GitHub Actions lab.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "license": "MIT"
+}
